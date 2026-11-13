@@ -1,5 +1,6 @@
 from mock_data import products, categories
 from products import products_menu
+from inventory import inventory_menu
 
 def display_main_menu():
     
@@ -26,7 +27,7 @@ def main():
             products_menu(products, categories)
                     
         elif choise == "2":
-            print("Inventory Managment")
+            inventory_menu(products)
         
         elif choise == "3":
             print("Salse Managment")

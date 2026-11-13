@@ -27,7 +27,7 @@ def products_menu(products, categories):
             update_product(products, categories)
             
         elif choise == "5":
-            print("Delete Product")
+            delete_product(products)
         
         elif choise == "6":
             break
@@ -241,3 +241,27 @@ def update_product(products, categories):
         return
 
     print("\nProduct updated successfully!")
+    
+
+def delete_product(products):
+    print("\n========== DELETE PRODUCT ==========")    
+    try:
+        product_id = int(input("Enter product ID: "))
+    except ValueError:
+        print("Invalid ID.")
+        return
+    
+    product = find_product_by_id(products, product_id)
+    if product is None:
+        print("product not found")
+        return
+    print(f"\nProduct: {product['name']}")
+    print(f"Price: {product['price']}")
+    print(f"Stock: {product['stock']}")
+    
+    confirm = input("\nAre you suer you want to delete this product? (yes/no): ")
+    if confirm.lower() == "yes":
+        products.remove(product)
+        print("Product deleted successfully!")
+    else:
+        print("Deletion cancelld.")
