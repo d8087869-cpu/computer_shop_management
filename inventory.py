@@ -31,7 +31,7 @@ def inventory_menu(products):
             add_stock(products)
 
         elif choice == "4":
-            print("Reduce Stock")
+            reduce_stock(products)
 
         elif choice == "5":
             print("Show Out of Stock Products")
